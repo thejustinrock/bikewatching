@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bikewatching | Boston Bluebikes</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.6.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css">
+  <link rel="stylesheet" href="map.css">
+  <script type="module" src="map.js"></script>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Bikewatching</h1>
+        <p>Explore Bluebikes station traffic in Boston and Cambridge during March 2024.</p>
+      </div>
+      <div class="filter">
+        <label for="minute">Filter by time of day</label>
+        <input id="minute" type="range" min="-1" max="1439" value="-1" disabled aria-valuetext="Any time">
+        <output for="minute" id="selected-time">Any time</output>
+      </div>
+    </header>
+    <section id="map" aria-label="Interactive map of Bluebikes stations and bike lanes">
+      <svg id="stations" aria-label="Bike station traffic"></svg>
+      <div id="station-details" role="tooltip" hidden></div>
+      <p id="status" role="status">Loading the map and station traffic…</p>
+    </section>
+    <ul class="legend" aria-label="Map legend">
+      <li class="departures">More departures</li>
+      <li class="balanced">Balanced</li>
+      <li class="arrivals">More arrivals</li>
+      <li class="lanes">Bike facilities</li>
+    </ul>
+    <p class="note">Larger circles show more station activity. Select a time to see arrivals and departures within one hour on either side, in Boston local time.</p>
+    <p class="note">Data from <a href="https://bluebikes.com/system-data">Bluebikes</a>, <a href="https://data.boston.gov/">Boston Open Data</a>, and <a href="https://data.cambridgema.gov/Public-Works/Bike-Facilities/9aey-9g9p">Cambridge GIS</a>.</p>
+  </main>
+</body>
+</html>
